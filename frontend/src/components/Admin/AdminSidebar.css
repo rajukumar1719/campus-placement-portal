@@ -1,0 +1,272 @@
+/* ================================
+   Admin Sidebar - Clean UI
+================================ */
+
+.as-sidebar {
+    width: 240px;
+    height: 100vh;
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* ================================
+   Logo
+================================ */
+.as-logo-wrap {
+    padding: 20px 18px 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+.as-logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: -0.3px;
+}
+
+.as-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #818cf8;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.as-badge svg {
+    font-size: 10px;
+}
+
+/* ================================
+   User Info
+================================ */
+.as-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    flex-shrink: 0;
+}
+
+.as-user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.as-user-info h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #f9fafb;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+.as-user-info p {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+}
+
+/* ================================
+   Navigation
+================================ */
+.as-nav {
+    flex: 1;
+    padding: 12px 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.as-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s ease;
+}
+
+.as-nav-link:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.as-nav-link.active {
+    background: rgba(99, 102, 241, 0.15);
+    color: #fff;
+}
+
+.as-nav-link.active .as-nav-icon {
+    color: #818cf8;
+}
+
+.as-nav-icon {
+    font-size: 15px;
+    width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.15s;
+}
+
+.as-nav-link:hover .as-nav-icon {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.as-nav-label {
+    flex: 1;
+}
+
+/* Scrollbar */
+.as-nav::-webkit-scrollbar {
+    width: 3px;
+}
+
+.as-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.as-nav::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+/* ================================
+   Logout
+================================ */
+.as-logout {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 14px 22px;
+    background: transparent;
+    color: rgba(239, 68, 68, 0.7);
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.as-logout:hover {
+    background: rgba(239, 68, 68, 0.08);
+    color: #ef4444;
+}
+
+.as-logout svg {
+    font-size: 15px;
+}
+
+/* ================================
+   Responsive - Mobile
+================================ */
+@media (max-width: 768px) {
+    .as-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: column;
+    }
+
+    .as-logo-wrap {
+        padding: 14px 16px;
+    }
+
+    .as-user {
+        display: none;
+    }
+
+    .as-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 8px 10px;
+        gap: 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .as-nav-link {
+        padding: 8px 12px;
+        border-radius: 8px;
+        white-space: nowrap;
+        flex-shrink: 0;
+        gap: 7px;
+    }
+
+    .as-nav-label {
+        font-size: 12px;
+    }
+
+    .as-logout {
+        padding: 12px 16px;
+        border-top: none;
+        border-left: 1px solid rgba(255, 255, 255, 0.07);
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .as-nav-label {
+        display: none;
+    }
+
+    .as-nav-link {
+        padding: 8px 10px;
+    }
+
+    .as-nav-icon {
+        font-size: 17px;
+        width: auto;
+    }
+
+    .as-logout span {
+        display: none;
+    }
+
+    .as-logout {
+        padding: 8px 14px;
+    }
+}

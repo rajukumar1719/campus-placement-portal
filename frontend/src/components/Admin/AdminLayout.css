@@ -1,0 +1,20 @@
+/* ===== Admin Layout ===== */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+.admin-content {
+    margin-left: 270px;
+    flex: 1;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .admin-content {
+        margin-left: 0;
+    }
+}

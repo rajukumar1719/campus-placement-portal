@@ -1,0 +1,203 @@
+/* src/components/Application/ResumeModal.css */
+
+/* ===== Modal Overlay ===== */
+.resume-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===== Modal Content Box ===== */
+.resume-modal .modal-content {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Modal Header ===== */
+.resume-modal .modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.resume-modal .modal-content .modal-header h3 {
+  font-size: 18px;
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-modal .modal-content .modal-header h3 svg {
+  color: var(--primary-color);
+}
+
+/* ===== Close Button ===== */
+.resume-modal .modal-content .modal-header .close-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--danger-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.resume-modal .modal-content .modal-header .close-btn:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+/* ===== Image Container ===== */
+.resume-modal .modal-content .image-container {
+  flex: 1;
+  overflow-y: auto;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.resume-modal .modal-content .image-container img {
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: contain;
+}
+
+/* ===== Image Loading ===== */
+.resume-modal .modal-content .image-container .image-loading {
+  padding: 60px 20px;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.resume-modal .modal-content .image-container .image-loading .spinner {
+  width: 35px;
+  height: 35px;
+  border: 4px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 12px;
+}
+
+/* ===== Modal Footer ===== */
+.resume-modal .modal-content .modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+}
+
+.resume-modal .modal-content .modal-footer .download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-color);
+  color: var(--white);
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.resume-modal .modal-content .modal-footer .download-btn:hover {
+  background: var(--primary-hover);
+}
+
+.resume-modal .modal-content .modal-footer .close-modal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--text-light);
+  color: var(--white);
+  padding: 9px 20px;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.resume-modal .modal-content .modal-footer .close-modal-btn:hover {
+  background: #64748b;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .resume-modal {
+    padding: 10px;
+  }
+
+  .resume-modal .modal-content {
+    padding: 15px;
+    max-height: 95vh;
+  }
+
+  .resume-modal .modal-content .modal-header h3 {
+    font-size: 15px;
+  }
+
+  .resume-modal .modal-content .image-container img {
+    max-height: 60vh;
+  }
+
+  .resume-modal .modal-content .modal-footer {
+    flex-direction: column;
+  }
+
+  .resume-modal .modal-content .modal-footer a,
+  .resume-modal .modal-content .modal-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}

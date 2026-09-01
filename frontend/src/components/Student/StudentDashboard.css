@@ -1,0 +1,792 @@
+/* ================================
+   Student Dashboard - Clean UI
+================================ */
+
+.db-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 25px 20px 40px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* Loading */
+.db-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 14px;
+}
+
+.db-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: dbspin 0.7s linear infinite;
+}
+
+@keyframes dbspin {
+    to { transform: rotate(360deg); }
+}
+
+.db-loading p {
+    color: #9ca3af;
+    font-size: 14px;
+}
+
+/* ================================
+   Welcome Bar
+================================ */
+.db-welcome {
+    background: linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%);
+    border-radius: 14px;
+    padding: 22px 28px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    border: 1px solid #e0e7ff;
+}
+
+.db-welcome-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.db-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.db-welcome-left h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.db-welcome-left p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.db-alert {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fef3c7;
+    border: 1px solid #fcd34d;
+    color: #92400e;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.db-alert svg {
+    color: #f59e0b;
+    flex-shrink: 0;
+}
+
+.db-alert span {
+    font-weight: 700;
+    white-space: nowrap;
+    margin-left: 4px;
+}
+
+/* ================================
+   Stats
+================================ */
+.db-stats {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.db-stat-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: box-shadow 0.2s;
+}
+
+.db-stat-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.db-stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    flex-shrink: 0;
+}
+
+.icon-blue   { background: #eff6ff; color: #3b82f6; }
+.icon-yellow { background: #fffbeb; color: #f59e0b; }
+.icon-green  { background: #f0fdf4; color: #22c55e; }
+.icon-purple { background: #f5f3ff; color: #8b5cf6; }
+.icon-red    { background: #fef2f2; color: #ef4444; }
+
+.db-stat-card h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.db-stat-card p {
+    font-size: 12px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+/* ================================
+   Main Grid - FIXED HEIGHT
+================================ */
+.db-grid {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+    align-items: start;
+}
+
+.db-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.db-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: sticky;
+    top: 25px;
+}
+
+/* ================================
+   Cards
+================================ */
+.db-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.db-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.db-card-top h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.db-card-top h3 svg {
+    color: #4f46e5;
+    font-size: 15px;
+}
+
+.db-card-top a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 13px;
+    color: #4f46e5;
+    font-weight: 600;
+    text-decoration: none;
+    transition: gap 0.2s;
+}
+
+.db-card-top a:hover {
+    gap: 8px;
+}
+
+/* ================================
+   Job List - COMPACT
+================================ */
+.db-job-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 320px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.db-job-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border: 1px solid #f3f4f6;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #fafafa;
+    transition: all 0.2s ease;
+}
+
+.db-job-row:hover {
+    border-color: #c7d2fe;
+    background: #f5f3ff;
+    transform: translateX(3px);
+}
+
+.db-job-initial {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.db-job-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.db-job-info h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.db-job-info p {
+    font-size: 12px;
+    color: #4f46e5;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.db-job-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.db-job-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    color: #6b7280;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 1px 6px;
+    border-radius: 4px;
+}
+
+.db-job-date {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.db-job-date span {
+    font-size: 9px;
+    color: #9ca3af;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.db-job-date p {
+    font-size: 11px;
+    color: #ef4444;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ================================
+   Application List - COMPACT
+================================ */
+.db-app-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.db-app-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 1px solid #f3f4f6;
+    border-radius: 10px;
+    background: #fafafa;
+    transition: background 0.2s;
+}
+
+.db-app-row:hover {
+    background: #f5f3ff;
+    border-color: #c7d2fe;
+}
+
+.db-app-initial {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #e0e7ff;
+    color: #4f46e5;
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.db-app-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.db-app-info h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.db-app-info p {
+    font-size: 11px;
+    color: #6b7280;
+    margin-bottom: 1px;
+}
+
+.db-app-date {
+    font-size: 10px;
+    color: #9ca3af;
+}
+
+/* Status Badges */
+.db-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.badge-selected    { background: #d1fae5; color: #065f46; }
+.badge-shortlisted { background: #fef3c7; color: #92400e; }
+.badge-rejected    { background: #fee2e2; color: #991b1b; }
+.badge-applied     { background: #e0e7ff; color: #3730a3; }
+
+/* ================================
+   Notifications - COMPACT
+================================ */
+.db-notif-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.db-notif-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #f3f4f6;
+    background: #fafafa;
+    transition: background 0.2s;
+}
+
+.db-notif-row:hover {
+    background: #f5f3ff;
+    border-color: #c7d2fe;
+}
+
+.db-notif-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4f46e5;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.db-notif-text h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 2px;
+}
+
+.db-notif-text p {
+    font-size: 11px;
+    color: #6b7280;
+    line-height: 1.4;
+    margin-bottom: 3px;
+}
+
+.db-notif-text span {
+    font-size: 10px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Quick Links - COMPACT
+================================ */
+.db-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.db-link-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid #f3f4f6;
+    border-radius: 10px;
+    text-decoration: none;
+    background: #fafafa;
+    color: #111827;
+    transition: all 0.2s ease;
+}
+
+.db-link-row:hover {
+    background: #f5f3ff;
+    border-color: #c7d2fe;
+    transform: translateX(3px);
+}
+
+.db-link-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.lnk-blue   { background: #eff6ff; color: #3b82f6; }
+.lnk-green  { background: #f0fdf4; color: #22c55e; }
+.lnk-yellow { background: #fffbeb; color: #f59e0b; }
+.lnk-purple { background: #f5f3ff; color: #8b5cf6; }
+.lnk-red    { background: #fef2f2; color: #ef4444; }
+
+.db-link-text {
+    flex: 1;
+}
+
+.db-link-text span {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.db-link-text small {
+    font-size: 10px;
+    color: #9ca3af;
+}
+
+.db-link-row svg:last-child {
+    color: #d1d5db;
+    font-size: 11px;
+}
+
+.db-link-row:hover svg:last-child {
+    color: #4f46e5;
+}
+
+/* ================================
+   Profile Box - COMPACT
+================================ */
+.db-profile-box {
+    border: 1px solid #e5e7eb;
+}
+
+.db-profile-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.db-profile-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.db-profile-head h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1px;
+}
+
+.db-profile-head p {
+    font-size: 10px;
+    color: #9ca3af;
+    margin-bottom: 3px;
+}
+
+.db-profile-status {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.db-profile-status.complete {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.db-profile-status.incomplete {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.db-profile-nums {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.db-profile-nums div {
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    border-radius: 8px;
+    padding: 8px 4px;
+}
+
+.db-profile-nums strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 1px;
+}
+
+.db-profile-nums span {
+    font-size: 10px;
+    color: #9ca3af;
+}
+
+.db-profile-link {
+    display: block;
+    text-align: center;
+    padding: 9px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.db-profile-link:hover {
+    background: #4338ca;
+}
+
+/* ================================
+   Empty State
+================================ */
+.db-empty {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.db-empty svg {
+    font-size: 28px;
+    color: #e5e7eb;
+    margin-bottom: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.db-empty p {
+    font-size: 12px;
+    color: #9ca3af;
+    margin-bottom: 10px;
+}
+
+.db-empty a {
+    display: inline-block;
+    padding: 7px 16px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.db-empty a:hover {
+    background: #4338ca;
+}
+
+/* ================================
+   Scrollbar - All Lists
+================================ */
+.db-job-list::-webkit-scrollbar,
+.db-app-list::-webkit-scrollbar,
+.db-notif-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.db-job-list::-webkit-scrollbar-track,
+.db-app-list::-webkit-scrollbar-track,
+.db-notif-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.db-job-list::-webkit-scrollbar-thumb,
+.db-app-list::-webkit-scrollbar-thumb,
+.db-notif-list::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 10px;
+}
+
+.db-job-list::-webkit-scrollbar-thumb:hover,
+.db-app-list::-webkit-scrollbar-thumb:hover,
+.db-notif-list::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 1024px) {
+    .db-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .db-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .db-right {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .db-page {
+        padding: 85px 14px 30px;
+    }
+
+    .db-welcome {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 18px 20px;
+    }
+
+    .db-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .db-right {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .db-page {
+        padding: 80px 12px 25px;
+    }
+
+    .db-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .db-stat-card {
+        padding: 14px 12px;
+    }
+
+    .db-stat-card h2 {
+        font-size: 20px;
+    }
+
+    .db-job-row {
+        flex-wrap: wrap;
+    }
+
+    .db-job-date {
+        text-align: left;
+        width: 100%;
+    }
+}

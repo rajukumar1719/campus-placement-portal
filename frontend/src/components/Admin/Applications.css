@@ -1,0 +1,469 @@
+/* ================================
+   Applications - Clean UI
+================================ */
+
+.ap-page {
+    padding: 24px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* ================================
+   Access Denied
+================================ */
+.ap-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.ap-denied svg {
+    font-size: 40px;
+    color: #ef4444;
+}
+
+.ap-denied h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.ap-denied p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Header
+================================ */
+.ap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ap-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.ap-header p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* Filter */
+.ap-filter {
+    padding: 9px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #374151;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.ap-filter:focus {
+    border-color: #4f46e5;
+}
+
+/* ================================
+   Count
+================================ */
+.ap-count {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 14px;
+}
+
+.ap-count span {
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+/* ================================
+   Loading
+================================ */
+.ap-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    gap: 14px;
+}
+
+.ap-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: apspin 0.7s linear infinite;
+}
+
+@keyframes apspin {
+    to { transform: rotate(360deg); }
+}
+
+.ap-loading p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Applications List
+================================ */
+.ap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ================================
+   Application Card
+================================ */
+.ap-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 18px 20px;
+    transition: box-shadow 0.2s;
+}
+
+.ap-card:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* ================================
+   Card Top Row
+================================ */
+.ap-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ap-student-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ap-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.ap-student-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.ap-student-info p {
+    font-size: 12px;
+    color: #4f46e5;
+    font-weight: 600;
+}
+
+/* Status Badges */
+.ap-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ap-badge-applied     { background: #e0e7ff; color: #3730a3; }
+.ap-badge-shortlisted { background: #d1fae5; color: #065f46; }
+.ap-badge-selected    { background: #bbf7d0; color: #14532d; }
+.ap-badge-rejected    { background: #fee2e2; color: #991b1b; }
+
+/* ================================
+   Details Row
+================================ */
+.ap-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.ap-details span {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #6b7280;
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.ap-details span svg {
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+/* ================================
+   Resume Row
+================================ */
+.ap-resume {
+    padding: 10px 0;
+    border-top: 1px solid #f3f4f6;
+    border-bottom: 1px solid #f3f4f6;
+    margin-bottom: 12px;
+}
+
+.ap-resume-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.ap-resume-label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.ap-resume-label svg {
+    color: #ef4444;
+    font-size: 13px;
+}
+
+.ap-resume-btns {
+    display: flex;
+    gap: 7px;
+}
+
+.ap-view-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.ap-view-btn:hover {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.ap-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    background: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.ap-download-btn:hover {
+    background: #16a34a;
+    color: #fff;
+    border-color: #16a34a;
+}
+
+.ap-no-resume {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.ap-no-resume svg {
+    color: #d1d5db;
+}
+
+/* ================================
+   Actions
+================================ */
+.ap-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ap-actions button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.ap-shortlist {
+    background: #d1fae5;
+    color: #065f46;
+    border-color: #a7f3d0 !important;
+}
+
+.ap-shortlist:hover:not(:disabled) {
+    background: #059669;
+    color: #fff;
+    border-color: #059669 !important;
+}
+
+.ap-select {
+    background: #dbeafe;
+    color: #1e40af;
+    border-color: #bfdbfe !important;
+}
+
+.ap-select:hover:not(:disabled) {
+    background: #1d4ed8;
+    color: #fff;
+    border-color: #1d4ed8 !important;
+}
+
+.ap-reject {
+    background: #fee2e2;
+    color: #991b1b;
+    border-color: #fecaca !important;
+}
+
+.ap-reject:hover:not(:disabled) {
+    background: #dc2626;
+    color: #fff;
+    border-color: #dc2626 !important;
+}
+
+.ap-actions button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* ================================
+   Empty State
+================================ */
+.ap-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.ap-empty svg {
+    font-size: 36px;
+    color: #e5e7eb;
+    margin-bottom: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ap-empty h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.ap-empty p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .ap-page {
+        padding: 16px;
+    }
+
+    .ap-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ap-filter {
+        width: 100%;
+    }
+
+    .ap-card-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ap-details {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .ap-actions {
+        flex-direction: column;
+    }
+
+    .ap-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .ap-page {
+        padding: 12px;
+    }
+
+    .ap-card {
+        padding: 14px;
+    }
+}

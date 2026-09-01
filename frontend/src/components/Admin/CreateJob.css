@@ -1,0 +1,242 @@
+/* ================================
+   Create Job - Clean UI
+================================ */
+
+.cj-page {
+    padding: 24px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* ================================
+   Access Denied
+================================ */
+.cj-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.cj-denied svg {
+    font-size: 40px;
+    color: #ef4444;
+}
+
+.cj-denied h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.cj-denied p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Back Button
+================================ */
+.cj-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 18px;
+    transition: gap 0.2s;
+}
+
+.cj-back:hover {
+    gap: 10px;
+}
+
+/* ================================
+   Header
+================================ */
+.cj-header {
+    margin-bottom: 20px;
+}
+
+.cj-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.cj-header p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Form Card
+================================ */
+.cj-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 28px;
+}
+
+/* ================================
+   Section Label
+================================ */
+.cj-section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #4f46e5;
+    margin-bottom: 14px;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.cj-section-label svg {
+    font-size: 13px;
+}
+
+/* ================================
+   Form Row
+================================ */
+.cj-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 0;
+}
+
+/* ================================
+   Form Group
+================================ */
+.cj-group {
+    margin-bottom: 16px;
+}
+
+.cj-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.cj-group input,
+.cj-group select,
+.cj-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #111827;
+    background: #fafafa;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.cj-group input:focus,
+.cj-group select:focus,
+.cj-group textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+.cj-group input::placeholder,
+.cj-group textarea::placeholder {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.cj-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.cj-group select {
+    cursor: pointer;
+}
+
+/* ================================
+   Submit Button
+================================ */
+.cj-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 13px;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+
+.cj-submit:hover:not(:disabled) {
+    background: #4338ca;
+}
+
+.cj-submit:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.cj-btn-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: cjspin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes cjspin {
+    to { transform: rotate(360deg); }
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .cj-page {
+        padding: 16px;
+    }
+
+    .cj-card {
+        padding: 20px;
+    }
+
+    .cj-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .cj-page {
+        padding: 12px;
+    }
+
+    .cj-card {
+        padding: 16px;
+    }
+}

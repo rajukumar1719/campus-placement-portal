@@ -1,0 +1,25 @@
+.saved-unsave-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: #6C5CE7;
+    color: #fff;
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.saved-unsave-btn:hover {
+    background: #e74c3c;
+}
+
+.job-card {
+    position: relative;
+}

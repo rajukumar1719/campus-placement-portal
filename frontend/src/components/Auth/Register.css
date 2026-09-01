@@ -1,0 +1,144 @@
+/* ===== Register Page ===== */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: #f5f7fa;
+}
+
+.register-card {
+    background: #fff;
+    padding: 45px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+}
+
+/* Logo */
+.register-card h1 {
+    font-size: 32px;
+    margin-bottom: 6px;
+    color: #1a1a2e;
+    font-weight: 800;
+}
+
+.register-card h2 {
+    font-size: 18px;
+    margin-bottom: 18px;
+    color: #888;
+    font-weight: 500;
+}
+
+/* Form Group */
+.register-card .form-group {
+    margin-bottom: 22px;
+    text-align: left;
+}
+
+.register-card .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #444;
+    font-weight: 600;
+}
+
+.register-card .form-group input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e8e8e8;
+    border-radius: 12px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background: #fafafa;
+    color: #333;
+}
+
+.register-card .form-group input:focus {
+    outline: none;
+    border-color: #6c63ff;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+}
+
+.register-card .form-group input::placeholder {
+    color: #bbb;
+}
+
+/* Register Button */
+.register-btn {
+    width: 100%;
+    padding: 15px;
+    background: #6c63ff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.register-btn:hover {
+    background: #5a52d5;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(108, 99, 255, 0.3);
+}
+
+.register-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Login Link */
+.register-card .login-link {
+    margin-top: 28px;
+    font-size: 14px;
+    color: #888;
+}
+
+.register-card .login-link a {
+    color: #6c63ff;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.register-card .login-link a:hover {
+    color: #5a52d5;
+    text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
+    .register-container {
+        padding: 15px;
+    }
+
+    .register-card {
+        padding: 35px 25px;
+        border-radius: 16px;
+    }
+
+    .register-card h1 {
+        font-size: 28px;
+    }
+
+    .register-card h2 {
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+
+    .register-card .form-group input {
+        padding: 12px 14px;
+    }
+}

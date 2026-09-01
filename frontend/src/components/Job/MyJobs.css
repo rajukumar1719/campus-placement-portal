@@ -1,0 +1,315 @@
+.my-jobs-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: 80vh;
+}
+
+.my-jobs-page .page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.my-jobs-page .page-header h2 {
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.my-jobs-page .page-header p {
+    color: #666;
+    font-size: 15px;
+}
+
+.my-jobs-page .jobs-count {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.my-jobs-page .jobs-count span {
+    font-weight: bold;
+    color: #1a1a2e;
+}
+
+/* Job Item */
+.job-item {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: border-color 0.3s;
+}
+
+.job-item.editing {
+    border-color: #3498db;
+    border-width: 2px;
+}
+
+/* Item Top */
+.item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+}
+
+.item-top .info h3 {
+    font-size: 20px;
+    color: #1a1a2e;
+    margin-bottom: 6px;
+}
+
+.category-tag {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #27ae60;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Item Meta */
+.item-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 12px;
+}
+
+.item-meta .meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #777;
+    font-size: 14px;
+}
+
+/* Item Salary */
+.item-salary {
+    color: #27ae60;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.item-salary span {
+    font-weight: normal;
+    color: #999;
+    font-size: 13px;
+}
+
+/* Item Description */
+.item-desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Item Actions */
+.item-actions {
+    display: flex;
+    gap: 12px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.edit-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.edit-btn:hover {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+}
+
+.save-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.save-btn:hover {
+    background-color: #219a52;
+}
+
+.cancel-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.cancel-btn:hover {
+    background-color: #7f8c8d;
+}
+
+/* Edit Form */
+.edit-form {
+    margin-bottom: 20px;
+}
+
+.edit-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.edit-row.single {
+    grid-template-columns: 1fr;
+}
+
+.edit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #555;
+    font-weight: 600;
+}
+
+.edit-form input,
+.edit-form select,
+.edit-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.edit-form input:focus,
+.edit-form select:focus,
+.edit-form textarea:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* No Jobs */
+.my-jobs-page .no-jobs {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.my-jobs-page .no-jobs .icon {
+    font-size: 50px;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.my-jobs-page .no-jobs h3 {
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.my-jobs-page .no-jobs p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.post-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #27ae60;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.post-btn:hover {
+    background-color: #219a52;
+}
+
+/* Not Authorized */
+.my-jobs-page .not-authorized {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.my-jobs-page .not-authorized .icon {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.go-btn {
+    display: inline-block;
+    background-color: #1a1a2e;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.go-btn:hover {
+    background-color: #16213e;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-row {
+        grid-template-columns: 1fr;
+    }
+
+    .item-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .item-actions {
+        flex-direction: column;
+    }
+}

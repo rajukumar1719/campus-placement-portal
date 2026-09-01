@@ -1,0 +1,207 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 15px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo */
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo span {
+    color: #27ae60;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.menu a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.menu a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification Bell */
+.notif-link {
+    position: relative;
+    padding: 8px 12px !important;
+}
+
+.notif-link svg {
+    font-size: 18px;
+}
+
+/* Auth Section */
+.auth-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.user-name {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+}
+
+.logout-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 20px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-link {
+    color: white !important;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 8px 20px !important;
+    border-radius: 6px;
+}
+
+.login-link:hover {
+    border-color: white;
+    background-color: transparent !important;
+}
+
+.register-link {
+    background-color: #27ae60 !important;
+    color: white !important;
+    padding: 10px 20px !important;
+    border-radius: 6px;
+}
+
+.register-link:hover {
+    background-color: #219a52 !important;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        padding: 20px;
+        gap: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu a {
+        padding: 12px 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .notif-link {
+        width: auto !important;
+    }
+
+    .auth-section,
+    .auth-buttons {
+        flex-direction: column;
+        margin: 0;
+        padding: 15px 0 0 0;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        width: 100%;
+    }
+
+    .login-link,
+    .register-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    .logout-btn {
+        width: 100%;
+    }
+}
+
+/* ===== Active Link ===== */
+.menu .active-link {
+    color: #6c63ff !important;
+    font-weight: 700;
+    position: relative;
+}
+
+.menu .active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #6c63ff;
+    border-radius: 2px;
+}

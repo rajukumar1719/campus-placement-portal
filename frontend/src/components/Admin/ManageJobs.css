@@ -1,0 +1,454 @@
+/* ================================
+   Manage Jobs - Clean UI
+================================ */
+
+.mj-page {
+    padding: 24px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* ================================
+   Access Denied
+================================ */
+.mj-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.mj-denied svg {
+    font-size: 40px;
+    color: #ef4444;
+}
+
+.mj-denied h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.mj-denied p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Header
+================================ */
+.mj-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.mj-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.mj-header p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.mj-create-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.mj-create-btn:hover {
+    background: #4338ca;
+}
+
+/* ================================
+   Toolbar - Search + Filter
+================================ */
+.mj-toolbar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.mj-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 9px 14px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.mj-search svg {
+    color: #9ca3af;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.mj-search input {
+    border: none;
+    outline: none;
+    font-size: 13px;
+    color: #111827;
+    width: 100%;
+    background: transparent;
+}
+
+.mj-search input::placeholder {
+    color: #9ca3af;
+}
+
+.mj-filter {
+    padding: 9px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #374151;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    min-width: 130px;
+}
+
+/* ================================
+   Count
+================================ */
+.mj-count {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 14px;
+}
+
+.mj-count span {
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+/* ================================
+   Loading
+================================ */
+.mj-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    gap: 14px;
+}
+
+.mj-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: mjspin 0.7s linear infinite;
+}
+
+@keyframes mjspin {
+    to { transform: rotate(360deg); }
+}
+
+.mj-loading p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Job List
+================================ */
+.mj-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ================================
+   Job Item
+================================ */
+.mj-item {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.2s ease;
+}
+
+.mj-item:hover {
+    border-color: #c7d2fe;
+    box-shadow: 0 2px 12px rgba(79, 70, 229, 0.08);
+}
+
+/* Company Logo */
+.mj-logo {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Info */
+.mj-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.mj-info-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+
+.mj-info-top h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}
+
+/* Status Badges */
+.mj-status {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    flex-shrink: 0;
+}
+
+.mj-status.active {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.mj-status.closed {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.mj-status.expired {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.mj-company {
+    font-size: 12px;
+    color: #4f46e5;
+    font-weight: 600;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Meta Tags */
+.mj-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.mj-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #6b7280;
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.mj-meta span svg {
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+/* ================================
+   Actions
+================================ */
+.mj-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.mj-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 14px;
+    background: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.mj-edit-btn:hover {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+}
+
+.mj-delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 7px 14px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.mj-delete-btn:hover {
+    background: #dc2626;
+    color: #fff;
+    border-color: #dc2626;
+}
+
+/* ================================
+   Empty State
+================================ */
+.mj-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.mj-empty svg {
+    font-size: 36px;
+    color: #e5e7eb;
+    margin-bottom: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mj-empty h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.mj-empty p {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 18px;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .mj-page {
+        padding: 16px;
+    }
+
+    .mj-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .mj-create-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .mj-item {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .mj-info-top h3 {
+        max-width: 200px;
+    }
+
+    .mj-actions {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .mj-edit-btn,
+    .mj-delete-btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .mj-page {
+        padding: 12px;
+    }
+
+    .mj-item {
+        padding: 14px;
+    }
+
+    .mj-info-top h3 {
+        max-width: 160px;
+        font-size: 13px;
+    }
+
+    .mj-toolbar {
+        flex-direction: column;
+    }
+
+    .mj-filter {
+        width: 100%;
+    }
+}

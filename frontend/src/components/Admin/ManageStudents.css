@@ -1,0 +1,372 @@
+/* ================================
+   Manage Students - Clean UI
+================================ */
+
+.ms-page {
+    padding: 24px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* ================================
+   Access Denied
+================================ */
+.ms-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.ms-denied svg {
+    font-size: 40px;
+    color: #ef4444;
+}
+
+.ms-denied h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.ms-denied p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Header
+================================ */
+.ms-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.ms-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.ms-header p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* Search */
+.ms-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-width: 280px;
+}
+
+.ms-search svg {
+    color: #9ca3af;
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.ms-search input {
+    border: none;
+    outline: none;
+    font-size: 13px;
+    color: #111827;
+    flex: 1;
+    background: transparent;
+}
+
+.ms-search input::placeholder {
+    color: #9ca3af;
+}
+
+.ms-search button {
+    padding: 6px 14px;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+
+.ms-search button:hover {
+    background: #4338ca;
+}
+
+/* ================================
+   Count
+================================ */
+.ms-count {
+    font-size: 13px;
+    color: #9ca3af;
+    margin-bottom: 14px;
+}
+
+.ms-count span {
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+/* ================================
+   Loading
+================================ */
+.ms-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px;
+    gap: 14px;
+}
+
+.ms-spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: msspin 0.7s linear infinite;
+}
+
+@keyframes msspin {
+    to { transform: rotate(360deg); }
+}
+
+.ms-loading p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Student List
+================================ */
+.ms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* ================================
+   Student Card
+================================ */
+.ms-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    transition: box-shadow 0.2s;
+}
+
+.ms-card:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+/* Left side */
+.ms-card-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Avatar */
+.ms-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #4f46e5;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Info */
+.ms-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ms-name-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.ms-name-row h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* Profile Status */
+.ms-status {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.ms-status.complete {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.ms-status.incomplete {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* Meta */
+.ms-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ms-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: #6b7280;
+    background: #f9fafb;
+    border: 1px solid #f3f4f6;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.ms-meta span svg {
+    color: #9ca3af;
+    font-size: 10px;
+}
+
+/* ================================
+   Delete Button
+================================ */
+.ms-delete {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 14px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.ms-delete:hover {
+    background: #dc2626;
+    color: #fff;
+    border-color: #dc2626;
+}
+
+/* ================================
+   Empty State
+================================ */
+.ms-empty {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.ms-empty svg {
+    font-size: 36px;
+    color: #e5e7eb;
+    margin-bottom: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ms-empty h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.ms-empty p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .ms-page {
+        padding: 16px;
+    }
+
+    .ms-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .ms-search {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .ms-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .ms-delete {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .ms-page {
+        padding: 12px;
+    }
+
+    .ms-card {
+        padding: 14px;
+    }
+
+    .ms-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+}

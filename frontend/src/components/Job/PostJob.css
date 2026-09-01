@@ -1,0 +1,133 @@
+.post-job-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    min-height: 80vh;
+}
+
+.post-job-page .page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.post-job-page .page-header h2 {
+    font-size: 28px;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+}
+
+.post-job-page .page-header p {
+    color: #666;
+    font-size: 15px;
+}
+
+/* Form */
+.post-job-page .form {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Two Column Layout */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+/* Input Group */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #1a1a2e;
+}
+
+.input-group textarea {
+    resize: vertical;
+}
+
+/* Submit Button */
+.post-job-page .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.post-job-page .submit-btn:hover {
+    background-color: #219a52;
+}
+
+.post-job-page .submit-btn:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+}
+
+/* Not Authorized */
+.not-authorized {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.not-authorized .icon {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.not-authorized h3 {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.not-authorized p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+
+    .post-job-page .form {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,372 @@
+/* ================================
+   Send Notification - Clean UI
+================================ */
+
+.sn-page {
+    padding: 24px;
+    background: #f9fafb;
+    min-height: 100vh;
+}
+
+/* ================================
+   Access Denied
+================================ */
+.sn-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    text-align: center;
+    gap: 10px;
+}
+
+.sn-denied svg {
+    font-size: 40px;
+    color: #ef4444;
+}
+
+.sn-denied h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.sn-denied p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Header
+================================ */
+.sn-header {
+    margin-bottom: 20px;
+}
+
+.sn-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 3px;
+}
+
+.sn-header p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Form Card
+================================ */
+.sn-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 20px;
+}
+
+.sn-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.sn-card-title svg {
+    color: #4f46e5;
+    font-size: 15px;
+}
+
+.sn-card-title h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+}
+
+/* ================================
+   Form Group
+================================ */
+.sn-group {
+    margin-bottom: 14px;
+}
+
+.sn-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 6px;
+}
+
+.sn-group input,
+.sn-group textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #111827;
+    background: #fafafa;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.sn-group input:focus,
+.sn-group textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+}
+
+.sn-group input::placeholder,
+.sn-group textarea::placeholder {
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.sn-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Send Button */
+.sn-send-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sn-send-btn:hover:not(:disabled) {
+    background: #4338ca;
+}
+
+.sn-send-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* ================================
+   List Section
+================================ */
+.sn-list-section {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.sn-list-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.sn-list-title span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #4f46e5;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ================================
+   Loading
+================================ */
+.sn-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 12px;
+}
+
+.sn-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid #e5e7eb;
+    border-top-color: #4f46e5;
+    border-radius: 50%;
+    animation: snspin 0.7s linear infinite;
+}
+
+@keyframes snspin {
+    to { transform: rotate(360deg); }
+}
+
+.sn-loading p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Notification Items
+================================ */
+.sn-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sn-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border: 1px solid #f3f4f6;
+    border-radius: 10px;
+    background: #fafafa;
+    transition: background 0.2s;
+}
+
+.sn-item:hover {
+    background: #f5f3ff;
+    border-color: #e0e7ff;
+}
+
+.sn-item-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: #e0e7ff;
+    color: #4f46e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.sn-item-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.sn-item-body h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.sn-item-body p {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+
+.sn-item-body span {
+    font-size: 11px;
+    color: #9ca3af;
+    background: #f3f4f6;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+/* Delete Button */
+.sn-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.sn-delete:hover {
+    background: #dc2626;
+    color: #fff;
+    border-color: #dc2626;
+}
+
+/* ================================
+   Empty State
+================================ */
+.sn-empty {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.sn-empty svg {
+    font-size: 32px;
+    color: #e5e7eb;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sn-empty p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 768px) {
+    .sn-page {
+        padding: 16px;
+    }
+
+    .sn-card,
+    .sn-list-section {
+        padding: 18px;
+    }
+
+    .sn-item {
+        flex-wrap: wrap;
+    }
+
+    .sn-delete {
+        width: 100%;
+        height: auto;
+        padding: 8px;
+        border-radius: 7px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sn-page {
+        padding: 12px;
+    }
+
+    .sn-card,
+    .sn-list-section {
+        padding: 14px;
+    }
+}

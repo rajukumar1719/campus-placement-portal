@@ -1,0 +1,87 @@
+/* src/components/Home/PopularCategories.css */
+
+.categories {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.categories h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: var(--dark-color);
+}
+
+.categories .subtitle {
+  font-size: 15px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+}
+
+/* ===== Category Grid ===== */
+.categories .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.categories .cat-card {
+  background: var(--white);
+  padding: 25px 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.categories .cat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* --- Icon --- */
+.categories .cat-card .icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary-color);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin: 0 auto 12px;
+}
+
+.categories .cat-card h4 {
+  font-size: 15px;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+
+.categories .cat-card p {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .categories {
+    padding: 40px 20px;
+  }
+
+  .categories h2 {
+    font-size: 26px;
+  }
+
+  .categories .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .categories .grid {
+    grid-template-columns: 1fr;
+  }
+}

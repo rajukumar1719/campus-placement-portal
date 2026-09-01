@@ -10,6 +10,7 @@ dotenv.config();
 connectDB();
 
 const app = express();
+app.set('trust proxy', 1);
 
 // ✅ Middlewares
 app.use(express.json({ limit: '10mb' }));

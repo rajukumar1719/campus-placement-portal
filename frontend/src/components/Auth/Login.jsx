@@ -12,7 +12,6 @@ const Login = () => {
     const { setIsAuthorized, setUser, isAuthorized, user } = useContext(Context);
     const navigate = useNavigate();
 
-    // ✅ FIX: useEffect mein move kiya
     useEffect(() => {
         if (isAuthorized && user) {
             if (user.role === "admin") {
@@ -33,17 +32,24 @@ const Login = () => {
                 password,
             });
 
-            // ✅ REMOVED: localStorage.setItem("token", ...)
-            // ✅ Only save user data
+            // ✅ Save Token & User in LocalStorage
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
             localStorage.setItem("user", JSON.stringify(res.data.user));
 
-            // ✅ State update
+            // ✅ Context State update
             setUser(res.data.user);
             setIsAuthorized(true);
 
             toast.success(res.data.message || "Login successful");
 
-            // Navigation handled by useEffect
+            // Direct Navigation
+            if (res.data.user?.role === "admin") {
+                navigate("/admin");
+            } else {
+                navigate("/jobs");
+            }
         } catch (error) {
             toast.error(error.response?.data?.message || "Login failed");
         }
@@ -82,7 +88,6 @@ const Login = () => {
                     <p className="forgot-link">
                         <Link to="/forgot-password">Forgot Password?</Link>
                     </p>
-
 
                     <button type="submit" className="login-btn" disabled={loading}>
                         {loading ? "Logging in..." : "Login"}

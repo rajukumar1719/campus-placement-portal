@@ -8,7 +8,18 @@ const API = axios.create({
     }
 });
 
-// Response Interceptor - 401 Unauthorized handling
+// ✅ Attach Bearer Token to Every Request
+API.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
+
+// ✅ Response Interceptor - 401 Unauthorized handling
 API.interceptors.response.use(
     (response) => {
         return response;
@@ -16,6 +27,7 @@ API.interceptors.response.use(
     (error) => {
         if (error.response?.status === 401) {
             localStorage.removeItem('user');
+            localStorage.removeItem('token');
             window.location.href = '/login';
         }
         return Promise.reject(error);

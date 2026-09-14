@@ -638,17 +638,24 @@ const notificationsData = [
 const seedDatabase = async () => {
     try {
         // Connect Database
-        await mongoose.connect(process.env.Mongodb_URI);
+        const uri = process.env.Mongodb_URI || process.env.MONGO_URI;
+        await mongoose.connect(uri);
         console.log('✅ Database Connected');
         console.log('='.repeat(60));
 
         // Admin user find karo
-        const admin = await User.findOne({ role: 'admin' });
+        let admin = await User.findOne({ role: 'admin' });
 
         if (!admin) {
-            console.log('❌ Admin user not found!');
-            console.log('👉 Pehle admin account banao');
-            process.exit(1);
+            console.log('⚠️ Admin user not found! Creating default admin...');
+            admin = await User.create({
+                name: 'Placement Admin',
+                email: 'admin@campushire.com',
+                password: 'Admin@123',
+                role: 'admin',
+                profileComplete: true
+            });
+            console.log('✅ Admin created: admin@campushire.com / Admin@123');
         }
 
         console.log(`✅ Admin found: ${admin.name} (${admin.email})`);
@@ -668,7 +675,8 @@ const seedDatabase = async () => {
             // Add postedBy to all jobs
             const jobsWithAdmin = jobsData.map(job => ({
                 ...job,
-                postedBy: admin._id
+                postedBy: admin._id,
+                deadline: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
             }));
 
             // Insert jobs
@@ -732,5 +740,70 @@ const seedDatabase = async () => {
     }
 };
 
-// Run
-seedDatabase();
+// Auto-seed function called non-destructively on server start
+const autoSeed = async () => {
+    try {
+        let admin = await User.findOne({ role: 'admin' });
+        if (!admin) {
+            admin = await User.create({
+                name: 'Placement Admin',
+                email: 'admin@campushire.com',
+                password: 'Admin@123',
+                role: 'admin',
+                profileComplete: true
+            });
+            console.log('✅ Default Admin created: admin@campushire.com / Admin@123');
+        }
+
+        const jobCount = await Job.countDocuments();
+        if (jobCount === 0) {
+            console.log('🌱 No jobs found in database. Auto-seeding initial 20 jobs...');
+            const freshJobs = jobsData.map(job => ({
+                ...job,
+                postedBy: admin._id,
+                status: 'active',
+                deadline: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+            }));
+            await Job.insertMany(freshJobs);
+            console.log(`✅ ${freshJobs.length} jobs seeded!`);
+        }
+
+        const notifCount = await Notification.countDocuments();
+        if (notifCount === 0) {
+            console.log('🌱 No notifications found. Auto-seeding notifications...');
+            const notifs = notificationsData.map(n => ({
+                ...n,
+                sentBy: admin._id
+            }));
+            await Notification.insertMany(notifs);
+            console.log(`✅ ${notifs.length} notifications seeded!`);
+        }
+
+        // Refresh any expired deadlines for active jobs so they remain visible
+        const now = new Date();
+        const activeUpcoming = await Job.countDocuments({ status: 'active', deadline: { $gte: now } });
+        if (activeUpcoming === 0 && (await Job.countDocuments({ status: 'active' })) > 0) {
+            await Job.updateMany(
+                { status: 'active' },
+                { $set: { deadline: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) } }
+            );
+            console.log('🔄 Refreshed deadlines for active jobs.');
+        }
+
+        return true;
+    } catch (err) {
+        console.error('❌ Auto-seed error:', err.message);
+        return false;
+    }
+};
+
+if (require.main === module) {
+    seedDatabase();
+}
+
+module.exports = {
+    jobsData,
+    notificationsData,
+    seedDatabase,
+    autoSeed
+};

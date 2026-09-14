@@ -18,6 +18,15 @@ router.get('/saved/my', authMiddleware, getSavedJobs);
 router.post('/:id/save', authMiddleware, toggleSaveJob);
 
 // ===== Public Routes =====
+router.get('/seed/initial', async (req, res) => {
+    try {
+        const { autoSeed } = require('../seed');
+        const ok = await autoSeed();
+        res.status(200).json({ success: ok, message: 'Jobs and Admin seeded successfully' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+});
 router.get('/', getAllJobs);         // ✅ Public - no auth needed
 router.get('/:id', getSingleJob);    // ✅ Public - no auth needed
 

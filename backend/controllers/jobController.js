@@ -4,6 +4,13 @@ const Application = require('../models/Application');
 // ✅ UPDATED: Get All Jobs with Search & Filter
 exports.getAllJobs = async (req, res) => {
     try {
+        // Auto-seed initial jobs if database is empty
+        const activeCount = await Job.countDocuments({ status: 'active' });
+        if (activeCount === 0) {
+            const { autoSeed } = require('../seed');
+            await autoSeed();
+        }
+
         const {
             search,
             jobType,
@@ -54,8 +61,10 @@ exports.getAllJobs = async (req, res) => {
             query.eligibility = { $regex: branch, $options: 'i' };
         }
 
-        // ✅ Filter: Only non-expired jobs
-        query.deadline = { $gte: new Date() };
+        // Filter by deadline only if explicitly requested
+        if (req.query.upcomingOnly === 'true') {
+            query.deadline = { $gte: new Date() };
+        }
 
         // ✅ Sort options
         let sortOption = { createdAt: -1 }; // Default: newest first

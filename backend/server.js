@@ -7,7 +7,14 @@ const path = require('path');
 const rateLimit = require('express-rate-limit');
 
 dotenv.config();
-connectDB();
+connectDB().then(async () => {
+    try {
+        const { autoSeed } = require('./seed');
+        await autoSeed();
+    } catch (e) {
+        console.error('Auto-seed error on startup:', e.message);
+    }
+});
 
 const app = express();
 app.set('trust proxy', 1);

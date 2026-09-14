@@ -31,6 +31,7 @@ const Navbar = () => {
             console.log("Logout error:", error);
         }
         localStorage.removeItem("user");
+        localStorage.removeItem("token");
         setIsAuthorized(false);
         setUser({});
         navigateTo("/login");
@@ -40,7 +41,7 @@ const Navbar = () => {
         <nav className="navbar">
             {/* Logo */}
             <div className="logo">
-                <Link to={isAuthorized ? "/dashboard" : "/"}>
+                <Link to={isAuthorized ? (user?.role === "admin" ? "/admin" : "/dashboard") : "/"}>
                     🎓 Campus<span>Hire</span>
                 </Link>
             </div>
@@ -59,13 +60,6 @@ const Navbar = () => {
                     </Link>
                 )}
 
-                        <Link
-                            to="/dashboard"
-                            className={isActive("/dashboard") ? "active-link" : ""}
-                            onClick={() => setShowMenu(false)}
-                        >
-                            Dashboard
-                        </Link>
                 <Link
                     to="/jobs"
                     className={isActive("/jobs") ? "active-link" : ""}
@@ -77,6 +71,13 @@ const Navbar = () => {
                 {/* Student Links */}
                 {isAuthorized && user?.role === "student" && (
                     <>
+                        <Link
+                            to="/dashboard"
+                            className={isActive("/dashboard") ? "active-link" : ""}
+                            onClick={() => setShowMenu(false)}
+                        >
+                            Dashboard
+                        </Link>
 
                         <Link
                             to="/applications/me"

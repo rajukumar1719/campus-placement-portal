@@ -22,6 +22,7 @@ const AdminSidebar = () => {
             console.log("Logout error:", error);
         }
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
         setIsAuthorized(false);
         setUser({});
         toast.success("Logged out successfully");

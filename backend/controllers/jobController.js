@@ -86,7 +86,7 @@ exports.getAllJobs = async (req, res) => {
         const locations = [...new Set(allJobs.map(j => j.location))].sort();
         const jobTypes = [...new Set(allJobs.map(j => j.jobType))].sort();
         const branches = [...new Set(
-            allJobs.flatMap(j => j.eligibility.split(',').map(b => b.trim()))
+            allJobs.flatMap(j => (j.eligibility || '').split(',').map(b => b.trim()).filter(Boolean))
         )].sort();
 
         res.status(200).json({
@@ -242,8 +242,11 @@ exports.deleteJob = async (req, res) => {
             });
         }
 
+        const Interview = require('../models/Interview');
+
         await Job.findByIdAndDelete(req.params.id);
         await Application.deleteMany({ job: req.params.id });
+        await Interview.deleteMany({ job: req.params.id });
 
         res.status(200).json({
             success: true,
@@ -325,6 +328,7 @@ exports.toggleSaveJob = async (req, res) => {
         }
 
         const user = await User.findById(req.user._id);
+        if (!user.savedJobs) user.savedJobs = [];
         const alreadySaved = user.savedJobs.some(id => id.toString() === jobId);
 
         if (alreadySaved) {
@@ -355,10 +359,12 @@ exports.getSavedJobs = async (req, res) => {
             populate: { path: 'postedBy', select: 'name' }
         });
 
+        const savedJobs = user?.savedJobs || [];
+
         res.status(200).json({
             success: true,
-            count: user.savedJobs.length,
-            jobs: user.savedJobs
+            count: savedJobs.length,
+            jobs: savedJobs
         });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });

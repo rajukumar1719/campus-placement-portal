@@ -14,15 +14,14 @@ const generateToken = (userId) => {
 const sendTokenResponse = (user, statusCode, message, res) => {
     const token = generateToken(user._id);
 
+    const isProduction = process.env.NODE_ENV === 'production';
+
     const cookieOptions = {
         httpOnly: true,
         maxAge: 7 * 24 * 60 * 60 * 1000,
-        sameSite: 'lax'
+        sameSite: isProduction ? 'none' : 'lax',
+        secure: isProduction
     };
-
-    if (process.env.NODE_ENV === 'production') {
-        cookieOptions.secure = true;
-    }
 
     user.password = undefined;
 
@@ -31,6 +30,7 @@ const sendTokenResponse = (user, statusCode, message, res) => {
        .json({
            success: true,
            message,
+           token,
            user: {
                _id: user._id,
                name: user.name,
@@ -225,7 +225,8 @@ exports.forgotPassword = async (req, res) => {
         await user.save({ validateBeforeSave: false });
 
         // Reset URL
-        const resetUrl = `${process.env.Frontend_URI || 'http://localhost:5173'}/reset-password/${resetToken}`;
+        const clientUrl = process.env.Frontend_URI || process.env.FRONTEND_URL || 'http://localhost:5173';
+        const resetUrl = `${clientUrl.replace(/\/$/, '')}/reset-password/${resetToken}`;
 
         // Email HTML
         const html = `

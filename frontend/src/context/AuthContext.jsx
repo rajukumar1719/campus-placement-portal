@@ -16,31 +16,41 @@ export const ContextProvider = ({ children }) => {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                // ✅ CHANGED: localStorage se user lo (token nahi)
+                const token = localStorage.getItem("token");
                 const savedUser = localStorage.getItem("user");
 
-                if (!savedUser) {
+                if (!token && !savedUser) {
                     setLoading(false);
                     setIsAuthorized(false);
+                    setUser({});
                     return;
                 }
 
-                // ✅ Backend se verify karo (cookie automatically jayegi)
+                // Optimistically set user from localStorage if available
+                if (savedUser) {
+                    try {
+                        setUser(JSON.parse(savedUser));
+                    } catch (e) {
+                        // ignore json parse error
+                    }
+                }
+
+                // Verify with backend (/auth/me attaches Bearer token from localStorage)
                 const response = await API.get("/auth/me");
 
                 if (response.data.success) {
                     setUser(response.data.user);
                     setIsAuthorized(true);
-                    // Update localStorage with fresh data
                     localStorage.setItem("user", JSON.stringify(response.data.user));
                 } else {
-                    // Invalid session
                     localStorage.removeItem("user");
+                    localStorage.removeItem("token");
                     setIsAuthorized(false);
+                    setUser({});
                 }
             } catch (error) {
-                // Error (401, 403, etc.)
                 localStorage.removeItem("user");
+                localStorage.removeItem("token");
                 setIsAuthorized(false);
                 setUser({});
             } finally {

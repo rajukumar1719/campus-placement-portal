@@ -31,17 +31,21 @@ const Register = () => {
                 password,
             });
 
-            // ✅ REMOVED: localStorage.setItem("token", ...)
-            // ✅ Only save user data
-            localStorage.setItem("user", JSON.stringify(res.data.user));
+            // ✅ Save Token & User in LocalStorage
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
+            if (res.data.user) {
+                localStorage.setItem("user", JSON.stringify(res.data.user));
+            }
 
             // ✅ State update
-            setUser(res.data.user);
+            setUser(res.data.user || {});
             setIsAuthorized(true);
 
             toast.success(res.data.message || "Registration successful");
 
-            // Navigation handled by useEffect
+            navigate("/jobs");
         } catch (error) {
             toast.error(error.response?.data?.message || "Registration failed");
         }

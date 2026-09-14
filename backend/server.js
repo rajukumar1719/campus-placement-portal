@@ -17,10 +17,34 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
+// ✅ CORS Configuration
+const allowedOrigins = [
+    process.env.Frontend_URI,
+    process.env.FRONTEND_URL,
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:3000',
+    'https://campus-placement-portal-murex.vercel.app'
+].filter(Boolean).map(url => url.replace(/\/$/, ''));
+
 app.use(cors({
-    origin: process.env.Frontend_URI || 'http://localhost:5173',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    credentials: true
+    origin: (origin, callback) => {
+        // allow requests with no origin (like mobile apps, curl, Postman)
+        if (!origin) return callback(null, true);
+        const cleanOrigin = origin.replace(/\/$/, '');
+        const isAllowed = allowedOrigins.includes(cleanOrigin) ||
+                          /\.vercel\.app$/.test(cleanOrigin) ||
+                          cleanOrigin.startsWith('http://localhost:');
+
+        if (isAllowed) {
+            callback(null, true);
+        } else {
+            callback(new Error(`Origin ${origin} not allowed by CORS`));
+        }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept']
 }));
 
 // ✅ Static Files

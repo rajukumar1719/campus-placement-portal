@@ -94,8 +94,11 @@ exports.deleteStudent = async (req, res) => {
             });
         }
 
-        // Delete student's applications first
+        const Interview = require('../models/Interview');
+
+        // Delete student's applications and interviews first
         await Application.deleteMany({ student: student._id });
+        await Interview.deleteMany({ student: student._id });
 
         // Then delete student
         await User.findByIdAndDelete(req.params.id);

@@ -14,6 +14,6 @@ const adminMiddleware = require("../middleware/adminMiddleware")
 router.get('/', authMiddleware, getAllNotifications)
 
 router.post('/', authMiddleware, adminMiddleware, sendNotification);
-router.delete('/', authMiddleware, adminMiddleware, deleteNotification);
+router.delete('/:id', authMiddleware, adminMiddleware, deleteNotification);
 
 module.exports = router;

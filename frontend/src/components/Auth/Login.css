@@ -158,12 +158,57 @@
 
 .forgot-link a:hover { text-decoration: underline; }
 
+/* ===== Role Tabs ===== */
+.login-role-tabs {
+    display: flex;
+    background: #f1f5f9;
+    border-radius: 12px;
+    padding: 4px;
+    margin-bottom: 24px;
+    gap: 6px;
+}
+
+.role-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.role-tab.active {
+    background: #ffffff;
+    color: #1e1b4b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.role-tab:hover:not(.active) {
+    color: #1e1b4b;
+}
+
+.login-btn.admin-mode {
+    background: #1e1b4b;
+}
+
+.login-btn.admin-mode:hover {
+    background: #312e81;
+}
+
 /* ===== Divider ===== */
 .login-divider {
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 22px 0 16px;
+    margin: 20px 0 14px;
 }
 
 .login-divider::before,
@@ -184,12 +229,12 @@
 /* ===== Login as an Admin Button ===== */
 .login-admin-btn {
     width: 100%;
-    padding: 14px;
-    background: #1e1b4b;
-    color: #ffffff;
-    border: 2px solid #1e1b4b;
+    padding: 13px;
+    background: #f8fafc;
+    color: #1e1b4b;
+    border: 2px solid #cbd5e1;
     border-radius: 12px;
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 700;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -200,16 +245,57 @@
 }
 
 .login-admin-btn:hover {
-    background: #312e81;
-    border-color: #312e81;
+    background: #1e1b4b;
+    color: #ffffff;
+    border-color: #1e1b4b;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(30, 27, 75, 0.25);
+    box-shadow: 0 6px 20px rgba(30, 27, 75, 0.2);
 }
 
-.login-admin-btn:disabled {
-    background: #9ca3af;
-    border-color: #9ca3af;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
+/* Admin credentials helper */
+.admin-credentials-hint {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.admin-credentials-hint p {
+    font-size: 12px;
+    color: #475569;
+    margin: 0;
+}
+
+.fill-demo-text-btn {
+    background: none;
+    border: none;
+    color: #6c63ff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.fill-demo-text-btn:hover {
+    color: #4338ca;
+}
+
+.switch-link-btn {
+    background: none;
+    border: none;
+    color: #6c63ff;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+}
+
+.switch-link-btn:hover {
+    text-decoration: underline;
 }

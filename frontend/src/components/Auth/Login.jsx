@@ -59,8 +59,28 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="login-card">
-                <h1>🎓 PlaceMe</h1>
-                <h2>Login</h2>
+                <h1>🎓 CampusHire</h1>
+                <h2>Login to Portal</h2>
+
+                {/* ✅ Quick Admin Credentials Helper */}
+                <div className="admin-demo-box">
+                    <div className="admin-demo-header">
+                        <span>🛡️ Admin Access</span>
+                        <button
+                            type="button"
+                            className="fill-admin-btn"
+                            onClick={() => {
+                                setEmail("admin@campushire.com");
+                                setPassword("Admin@123");
+                            }}
+                        >
+                            Auto-Fill Admin
+                        </button>
+                    </div>
+                    <p className="admin-demo-hint">
+                        Click above to auto-fill <strong>admin@campushire.com</strong> / <strong>Admin@123</strong> to enter the Placement Cell Admin Panel.
+                    </p>
+                </div>
 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">

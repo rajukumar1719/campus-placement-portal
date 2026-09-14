@@ -56,31 +56,36 @@ const Login = () => {
         setLoading(false);
     };
 
+    const handleLoginAsAdmin = async () => {
+        setLoading(true);
+        try {
+            const res = await API.post("/auth/login", {
+                email: "admin@campushire.com",
+                password: "Admin@123",
+            });
+
+            if (res.data.token) {
+                localStorage.setItem("token", res.data.token);
+            }
+            localStorage.setItem("user", JSON.stringify(res.data.user));
+
+            setUser(res.data.user);
+            setIsAuthorized(true);
+
+            toast.success("Logged in as Admin successfully");
+            navigate("/admin");
+        } catch (error) {
+            toast.error(error.response?.data?.message || "Admin login failed");
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="login-container">
             <div className="login-card">
                 <h1>🎓 CampusHire</h1>
                 <h2>Login to Portal</h2>
-
-                {/* ✅ Quick Admin Credentials Helper */}
-                <div className="admin-demo-box">
-                    <div className="admin-demo-header">
-                        <span>🛡️ Admin Access</span>
-                        <button
-                            type="button"
-                            className="fill-admin-btn"
-                            onClick={() => {
-                                setEmail("admin@campushire.com");
-                                setPassword("Admin@123");
-                            }}
-                        >
-                            Auto-Fill Admin
-                        </button>
-                    </div>
-                    <p className="admin-demo-hint">
-                        Click above to auto-fill <strong>admin@campushire.com</strong> / <strong>Admin@123</strong> to enter the Placement Cell Admin Panel.
-                    </p>
-                </div>
 
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
@@ -111,6 +116,19 @@ const Login = () => {
 
                     <button type="submit" className="login-btn" disabled={loading}>
                         {loading ? "Logging in..." : "Login"}
+                    </button>
+
+                    <div className="login-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <button
+                        type="button"
+                        className="login-admin-btn"
+                        onClick={handleLoginAsAdmin}
+                        disabled={loading}
+                    >
+                        🛡️ Login as an Admin
                     </button>
                 </form>
 
